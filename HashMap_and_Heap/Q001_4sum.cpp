@@ -57,10 +57,10 @@ vector<vector<int>> fourSum(vector<int> &nums, int target)
     return list;
 }
 
-int main(int args, char **argv)
+void solve()
 {
     int n, target;
-    cin >> target >> n;
+    cin >> n >> target;
     vector<int> nums(n, 0);
     for (int i = 0; i < n; i++)
     {
@@ -68,23 +68,26 @@ int main(int args, char **argv)
     }
 
     vector<vector<int>> list = fourSum(nums, target);
-    cout << "[";
     for (int i = 0; i < list.size(); i++)
     {
-        cout << "[";
         for (int j = 0; j < list[i].size(); j++)
         {
-            if (j == list[i].size() - 1)
-                cout << list[i][j];
-            else
-                cout << list[i][j] << ",";
+            cout << list[i][j] << " ";
         }
-        if (i == list.size() - 1)
-            cout << "]";
-        else
-            cout << "],";
+        cout << "$";
     }
-    cout << "]";
+    if (list.size() == 0)
+        cout << -1;
+    cout << endl;
+}
+
+int main(int args, char **argv)
+{
+    int t;
+    cin >> t;
+    while (t-- > 0)
+        solve();
+    return 0;
 }
 
 //rajneesh.
